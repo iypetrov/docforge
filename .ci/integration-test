@@ -73,7 +73,12 @@ rm -rf "${int_test_output_tree_dir}"
 
 # build docforge
 echo "Building docforge"
-LOCAL_BUILD=1 "${docforge_repo_path}/.ci/build" >/dev/null 2>&1
+if ! LOCAL_BUILD=1 "${docforge_repo_path}/.ci/build" >/tmp/buildlog 2>&1; then
+  echo "Build failed - printing log:"
+  cat /tmp/buildlog
+  exit 1
+fi
+echo "Build succeeded"
 docforge_bin="${docforge_repo_path}/bin/docforge"
 
 echo "Docforge version: $(${docforge_bin} version 2>/dev/null)"
