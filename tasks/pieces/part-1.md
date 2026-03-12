@@ -59,3 +59,5 @@ Podrick was tired.
 * Each provider has their own release/adoption cycle for new Kubernetes version and features.
 
 <img src="./images/podrick/icon_raccoon.png" style="width: 50%" alt="raccoon representing a kubernetes provider">
+
+---
